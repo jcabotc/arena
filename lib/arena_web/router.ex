@@ -17,12 +17,6 @@ defmodule ArenaWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ArenaWeb do
-    pipe_through :browser
-
-    get "/", PageController, :home
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", ArenaWeb do
   #   pipe_through :api
@@ -59,6 +53,12 @@ defmodule ArenaWeb.Router do
     end
 
     post "/users/log_in", UserSessionController, :create
+  end
+
+  scope "/", ArenaWeb do
+    pipe_through [:browser, :require_authenticated_user_without_warning]
+
+    get "/", PageController, :home
   end
 
   scope "/", ArenaWeb do
