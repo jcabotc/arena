@@ -1,4 +1,4 @@
-defmodule ArenaWeb.UserLoginLive do
+defmodule ArenaWeb.Users.UserLoginLive do
   use ArenaWeb, :live_view
 
   def render(assigns) do
@@ -14,11 +14,9 @@ defmodule ArenaWeb.UserLoginLive do
           for an account now.
         </:subtitle>
       </.header>
-
       <.simple_form for={@form} id="login_form" action={~p"/users/log_in"} phx-update="ignore">
         <.input field={@form[:email]} type="email" label="Email" required />
         <.input field={@form[:password]} type="password" label="Password" required />
-
         <:actions>
           <.input field={@form[:remember_me]} type="checkbox" label="Keep me logged in" />
           <.link href={~p"/users/reset_password"} class="text-sm font-semibold">

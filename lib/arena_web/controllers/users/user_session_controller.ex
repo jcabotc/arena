@@ -1,4 +1,4 @@
-defmodule ArenaWeb.UserSessionController do
+defmodule ArenaWeb.Users.UserSessionController do
   use ArenaWeb, :controller
 
   alias Arena.Accounts

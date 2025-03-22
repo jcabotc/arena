@@ -1,6 +1,5 @@
-defmodule ArenaWeb.UserSettingsLive do
+defmodule ArenaWeb.Users.UserSettingsLive do
   use ArenaWeb, :live_view
-
   alias Arena.Accounts
 
   def render(assigns) do
@@ -9,7 +8,6 @@ defmodule ArenaWeb.UserSettingsLive do
       Account Settings
       <:subtitle>Manage your account email address and password settings</:subtitle>
     </.header>
-
     <div class="space-y-12 divide-y">
       <div>
         <.simple_form

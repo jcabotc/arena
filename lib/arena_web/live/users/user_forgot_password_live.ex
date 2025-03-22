@@ -1,6 +1,5 @@
-defmodule ArenaWeb.UserForgotPasswordLive do
+defmodule ArenaWeb.Users.UserForgotPasswordLive do
   use ArenaWeb, :live_view
-
   alias Arena.Accounts
 
   def render(assigns) do
@@ -10,7 +9,6 @@ defmodule ArenaWeb.UserForgotPasswordLive do
         Forgot your password?
         <:subtitle>We'll send a password reset link to your inbox</:subtitle>
       </.header>
-
       <.simple_form for={@form} id="reset_password_form" phx-submit="send_email">
         <.input field={@form[:email]} type="email" placeholder="Email" required />
         <:actions>

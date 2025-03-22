@@ -1,6 +1,5 @@
-defmodule ArenaWeb.UserRegistrationLive do
+defmodule ArenaWeb.Users.UserRegistrationLive do
   use ArenaWeb, :live_view
-
   alias Arena.Accounts
   alias Arena.Accounts.User
 
@@ -17,7 +16,6 @@ defmodule ArenaWeb.UserRegistrationLive do
           to your account now.
         </:subtitle>
       </.header>
-
       <.simple_form
         for={@form}
         id="registration_form"
@@ -30,10 +28,8 @@ defmodule ArenaWeb.UserRegistrationLive do
         <.error :if={@check_errors}>
           Oops, something went wrong! Please check the errors below.
         </.error>
-
         <.input field={@form[:email]} type="email" label="Email" required />
         <.input field={@form[:password]} type="password" label="Password" required />
-
         <:actions>
           <.button phx-disable-with="Creating account..." class="w-full">Create an account</.button>
         </:actions>
