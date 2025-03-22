@@ -56,17 +56,13 @@ defmodule ArenaWeb.Router do
   end
 
   scope "/", ArenaWeb do
-    pipe_through [:browser, :require_authenticated_user_without_warning]
-
-    get "/", PageController, :home
-  end
-
-  scope "/", ArenaWeb do
     pipe_through [:browser, :require_authenticated_user]
 
-    scope "/users", Users do
-      live_session :require_authenticated_user,
-        on_mount: [{ArenaWeb.UserAuth, :ensure_authenticated}] do
+    live_session :require_authenticated_user,
+      on_mount: [{ArenaWeb.UserAuth, :ensure_authenticated}] do
+      live "/", Home.HomeLive, :index
+
+      scope "/users", Users do
         live "/settings", UserSettingsLive, :edit
         live "/settings/confirm_email/:token", UserSettingsLive, :confirm_email
       end
